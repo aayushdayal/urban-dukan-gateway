@@ -1,0 +1,31 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Products",
+      "UpstreamPathTemplate": "/products",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "ud-product-api-fkfffefahshndbbx.centralindia-01.azurewebsites.net",
+          "Port": 443
+        }
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Products/{id}",
+      "UpstreamPathTemplate": "/products/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "ud-product-api-fkfffefahshndbbx.centralindia-01.azurewebsites.net",
+          "Port": 443
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://YOUR-GATEWAY-URL.azurewebsites.net"
+  }
+}
