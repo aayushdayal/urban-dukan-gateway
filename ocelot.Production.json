@@ -26,6 +26,6 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "https://YOUR-GATEWAY-URL.azurewebsites.net"
+    "BaseUrl": "https://ud-ocelot-gateway-api.azurewebsites.net/"
   }
 }
