@@ -18,7 +18,7 @@ builder.Logging.AddConsole();
 builder.Services.AddOcelot(builder.Configuration);
 
 var app = builder.Build();
-
+app.MapGet("/", () => "Ocelot Gateway is running");
 // Use Ocelot
 await app.UseOcelot();
 
