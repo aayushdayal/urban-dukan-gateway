@@ -47,6 +47,116 @@
           "Port": 443
         }
       ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/cart",
+      "UpstreamPathTemplate": "/cart",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "ud-checkout-api.azurewebsites.net",
+          "Port": 443
+        }
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/cart/items",
+      "UpstreamPathTemplate": "/cart/items",
+      "UpstreamHttpMethod": [ "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "ud-checkout-api.azurewebsites.net",
+          "Port": 443
+        }
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/cart/items/{productId}",
+      "UpstreamPathTemplate": "/cart/items/{productId}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "ud-checkout-api.azurewebsites.net",
+          "Port": 443
+        }
+      ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/orders",
+      "UpstreamPathTemplate": "/orders",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "ud-checkout-api.azurewebsites.net",
+          "Port": 443
+        }
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/orders/buynow",
+      "UpstreamPathTemplate": "/orders/buynow",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "ud-checkout-api.azurewebsites.net",
+          "Port": 443
+        }
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/orders/{id}",
+      "UpstreamPathTemplate": "/orders/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "ud-checkout-api.azurewebsites.net",
+          "Port": 443
+        }
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/orders/me",
+      "UpstreamPathTemplate": "/orders/me",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "ud-checkout-api.azurewebsites.net",
+          "Port": 443
+        }
+      ]
     }
   ],
   "GlobalConfiguration": {
