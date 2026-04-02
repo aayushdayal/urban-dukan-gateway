@@ -1,7 +1,7 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/Auth/login",
+      "DownstreamPathTemplate": "/api/auth/login",
       "UpstreamPathTemplate": "/auth/login",
       "UpstreamHttpMethod": [ "POST" ],
       "DownstreamScheme": "https",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "DownstreamPathTemplate": "/api/Auth/register",
+      "DownstreamPathTemplate": "/api/auth/register",
       "UpstreamPathTemplate": "/auth/register",
       "UpstreamHttpMethod": [ "POST" ],
       "DownstreamScheme": "https",
@@ -97,11 +97,10 @@
         }
       ]
     },
-
     {
-      "DownstreamPathTemplate": "/api/orders",
-      "UpstreamPathTemplate": "/orders",
-      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/api/orders/me",
+      "UpstreamPathTemplate": "/orders/me",
+      "UpstreamHttpMethod": [ "GET" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
@@ -131,9 +130,13 @@
       ]
     },
     {
-      "DownstreamPathTemplate": "/api/orders/{id}",
-      "UpstreamPathTemplate": "/orders/{id}",
-      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/orders",
+      "UpstreamPathTemplate": "/orders",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -142,14 +145,11 @@
         }
       ]
     },
+
     {
-      "DownstreamPathTemplate": "/api/orders/me",
-      "UpstreamPathTemplate": "/orders/me",
+      "DownstreamPathTemplate": "/api/orders/{id}",
+      "UpstreamPathTemplate": "/orders/{id}",
       "UpstreamHttpMethod": [ "GET" ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
-      },
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {

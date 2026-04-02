@@ -9,11 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Load Ocelot config
 builder.Configuration
-    .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+    .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true)
+    .AddJsonFile($"ocelot.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: true);
 
 // Optional: logging
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
+builder.Logging.SetMinimumLevel(LogLevel.Debug);
 
 // Read JWT settings from configuration
 var jwtSection = builder.Configuration.GetSection("JwtSettings");
@@ -22,7 +24,7 @@ var issuer = jwtSection["Issuer"] ?? throw new InvalidOperationException("JwtSet
 var audience = jwtSection["Audience"] ?? throw new InvalidOperationException("JwtSettings:Audience is not configured");
 
 // build signing key from base64 secret
-var keyBytes = Convert.FromBase64String(secret);
+var keyBytes = System.Text.Encoding.UTF8.GetBytes(secret);
 var signingKey = new SymmetricSecurityKey(keyBytes);
 
 builder.Services.AddAuthentication(options =>
@@ -50,7 +52,11 @@ builder.Services.AddAuthentication(options =>
 });
 
 builder.Services.AddAuthorization();
-
+builder.Services.AddLogging(logging =>
+{
+    logging.AddConsole();
+    logging.SetMinimumLevel(LogLevel.Debug);
+});
 // Swagger / OpenAPI
 //builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerForOcelot(builder.Configuration);
@@ -86,7 +92,9 @@ builder.Services.AddAuthorization();
 builder.Services.AddOcelot(builder.Configuration);
 
 var app = builder.Build();
+app.UseDeveloperExceptionPage();
 app.MapGet("/", () => "Ocelot Gateway is running");
+
 
 // Swagger middleware
 //app.UseSwagger();
@@ -96,6 +104,19 @@ app.MapGet("/", () => "Ocelot Gateway is running");
 //});
 
 // Ensure authentication/authorization run before Ocelot middleware
+app.Use(async (context, next) =>
+{
+    Console.WriteLine($"[OCELOT] Incoming: {context.Request.Method} {context.Request.Path}");
+
+    foreach (var header in context.Request.Headers)
+    {
+        Console.WriteLine($"Header: {header.Key} = {header.Value}");
+    }
+
+    await next();
+
+    Console.WriteLine($"[OCELOT] Response Status: {context.Response.StatusCode}");
+});
 app.UseAuthentication();
 app.UseAuthorization();
 
