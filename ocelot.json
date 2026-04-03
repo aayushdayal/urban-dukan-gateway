@@ -48,7 +48,18 @@
         }
       ]
     },
-
+    {
+      "DownstreamPathTemplate": "/api/Search",
+      "UpstreamPathTemplate": "/search",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "ud-product-api-fkfffefahshndbbx.centralindia-01.azurewebsites.net",
+          "Port": 443
+        }
+      ]
+    },
     {
       "DownstreamPathTemplate": "/api/cart",
       "UpstreamPathTemplate": "/cart",
@@ -157,7 +168,6 @@
         }
       ]
     }
-
   ],
   "GlobalConfiguration": {
     "BaseUrl": "https://ud-ocelot-gateway-api.azurewebsites.net"
