@@ -55,8 +55,20 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "ud-product-api-fkfffefahshndbbx.centralindia-01.azurewebsites.net",
-          "Port": 443
+          "Host": "localhost",
+          "Port": 7019
+        }
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Search/autocomplete",
+      "UpstreamPathTemplate": "/search/autocomplete",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7019
         }
       ]
     },
