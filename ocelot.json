@@ -25,6 +25,22 @@
       ]
     },
     {
+      "DownstreamPathTemplate": "/api/auth/userdetails",
+      "UpstreamPathTemplate": "/auth/userdetails",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "ud-user-api.azurewebsites.net",
+          "Port": 443
+        }
+      ]
+    },
+    {
       "DownstreamPathTemplate": "/api/Products",
       "UpstreamPathTemplate": "/products",
       "UpstreamHttpMethod": [ "GET" ],

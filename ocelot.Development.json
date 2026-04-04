@@ -25,6 +25,22 @@
       ]
     },
     {
+      "DownstreamPathTemplate": "/api/auth/userdetails",
+      "UpstreamPathTemplate": "/auth/userdetails",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 56132
+        }
+      ]
+    },
+    {
       "DownstreamPathTemplate": "/api/Products",
       "UpstreamPathTemplate": "/products",
       "UpstreamHttpMethod": [ "GET" ],
@@ -68,7 +84,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7019
+          "Port": 7019    
         }
       ]
     },
@@ -168,7 +184,6 @@
         }
       ]
     },
-
     {
       "DownstreamPathTemplate": "/api/orders/{id}",
       "UpstreamPathTemplate": "/orders/{id}",
