@@ -213,8 +213,8 @@
         ]
     },
     {
-        "DownstreamPathTemplate": "/notificationHub",
-        "UpstreamPathTemplate": "/notificationHub",
+        "DownstreamPathTemplate": "/notificationHub/{everything}",
+        "UpstreamPathTemplate": "/notificationHub/{everything}",
         "UpstreamHttpMethod": [ "GET", "POST" ],
         "DownstreamScheme": "https",
         "DownstreamHostAndPorts": [
