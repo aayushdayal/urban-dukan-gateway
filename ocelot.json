@@ -201,16 +201,28 @@
       ]
     },
     {
-      "DownstreamPathTemplate": "/api/orders/{id}",
-      "UpstreamPathTemplate": "/orders/{id}",
-      "UpstreamHttpMethod": [ "GET" ],
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "ud-checkout-api.azurewebsites.net",
-          "Port": 443
-        }
-      ]
+        "DownstreamPathTemplate": "/api/orders/{id}",
+        "UpstreamPathTemplate": "/orders/{id}",
+        "UpstreamHttpMethod": [ "GET" ],
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+            {
+                "Host": "ud-checkout-api.azurewebsites.net",
+                "Port": 443
+            }
+        ]
+    },
+    {
+        "DownstreamPathTemplate": "/notificationHub",
+        "UpstreamPathTemplate": "/notificationHub",
+        "UpstreamHttpMethod": [ "GET", "POST" ],
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+            {
+                "Host": "ud-notification-api.azurewebsites.net",
+                "Port": 443
+            }
+        ]
     }
   ],
   "GlobalConfiguration": {

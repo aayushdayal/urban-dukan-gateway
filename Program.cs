@@ -119,6 +119,7 @@ app.Use(async (context, next) =>
 });
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseWebSockets();
 
 // Use Ocelot
 await app.UseOcelot();

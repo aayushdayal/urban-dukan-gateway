@@ -201,16 +201,28 @@
       ]
     },
     {
-      "DownstreamPathTemplate": "/api/orders/{id}",
-      "UpstreamPathTemplate": "/orders/{id}",
-      "UpstreamHttpMethod": [ "GET" ],
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7112
-        }
-      ]
+        "DownstreamPathTemplate": "/api/orders/{id}",
+        "UpstreamPathTemplate": "/orders/{id}",
+        "UpstreamHttpMethod": [ "GET" ],
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+            {
+                "Host": "localhost",
+                "Port": 7112
+            }
+        ]
+    },
+    {
+        "DownstreamPathTemplate": "/notificationHub",
+        "UpstreamPathTemplate": "/notificationHub",
+        "UpstreamHttpMethod": [ "GET", "POST" ],
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+            {
+                "Host": "localhost",
+                "Port": 7264
+            }
+        ]
     }
   ],
   "GlobalConfiguration": {
